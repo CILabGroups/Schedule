@@ -1,0 +1,16 @@
+这篇文档给出了部分问题的我的思考，仅供参考，没有回答的问题可以在网上check到，或者仔细思考可以想明白。
+copying mechanism：
+1、为什么计算Wc中词概率的时候对变换矩阵Mc进行了activation，而在计算Wg中词概率的时候没有这步操作？
+activation是为了把wc集合的词向量映射到高维空间，在该空间计算和ht的相似。而算wg概率就用lstm+mlp
+skeleton：
+1、post-word alpha能否用于Skel-LSTM呢？以及是否有理由这样做呢？
+不能。之所以能在attri-lstm上用post-word alpha是因为经过skel后有了一个w_t+1的估计，而skel在输入时还不存在这个估计。。。
+2、LSTM本身倾向于短句，引入normalization可以改善，本文用r控制句子长度的方法与normalization结合理论上似乎不work，那么这种方法没有考虑到LSTM本身倾向于短句的特性？
+r可以看成长度的正则因子，r正则鼓励长句子。
+
+ps 可以关注强化学习的框架，迁移到caption问题中来
+
+舒燕
+
+
+
